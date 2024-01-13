@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+*::selection {
+	background-color: transparent;
+}
+
+html {
+	/* changes the 1REM from 16px to 10px */
+	font-size: 62.5%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: rgba(95, 158, 160, 0.4);
+	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 7rem;
+	letter-spacing: 8px;
+	margin: 2rem 0 6rem;
+	color: rgba(255, 192, 203, 0.9);
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.todo-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.input-note {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin: 1rem 0 3rem;
+}
+
+.input-note span {
+	font-size: 4rem;
+	color: #000;
+	cursor: pointer;
+}
+
+.input-note span:active {
+	transform: scale(0.9);
+}
+
+input {
+	min-width: 30rem;
+	padding: 0.4rem 0.8rem;
+	font-size: 1.8rem;
+	border: 1px solid #000;
+	border-radius: 2px;
+}
+
+input:focus,
+input:focus-visible {
+	outline: none;
+}
+
+ul {
+	list-style: none;
+	font-size: 2rem;
+	display: flex;
+	flex-direction: column;
+	max-width: 90rem;
+	justify-content: center;
+	align-items: center;
+}
+
+li {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	max-width: 50rem;
+	min-width: 15rem;
+	height: fit-content;
+	/* flex-grow: 1; */
+	text-align: left;
+	background-color: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 2.5rem 1rem;
+	box-shadow: 0 0 4px #000;
+}
+
+li::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 150%;
+	height: 150%;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.7);
+	transform: translate(-50%, -50%) scale(0);
+	transition: all 0.5s ease-in-out;
+}
+
+li.completed::after {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.todo-text {
+	padding: 1rem;
+
+	transition: all 0.3s ease-in-out;
+}
+
+li.completed .todo-text {
+	color: #fff;
+	background-color: #000;
+	text-decoration: line-through;
+}
+
+.todo-options {
+	display: flex;
+	justify-content: space-between;
+	z-index: 9999;
+	width: 100%;
+	/* position: absolute;
+	bottom: 0;
+	left: 0; */
+}
+
+.btn {
+	border: 1px solid #000;
+	border-bottom: none;
+	width: 49.5%;
+	padding: 0.5rem;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.complete {
+	border-left: none;
+	background-color: greenyellow;
+}
+
+.delete {
+	border-right: none;
+	background-color: red;
+}
+
+@media (max-width: 24em) {
+	h1 {
+		font-size: 5rem;
+		margin: 2rem 0;
+	}
+
+	.input-note {
+		max-width: 25rem;
+	}
+
+	input {
+		min-width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 18em) {
+	.input-note {
+		max-width: 20rem;
+	}
+
+	.input-note span {
+		margin-left: -0.5rem;
+	}
+}
